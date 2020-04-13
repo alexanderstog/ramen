@@ -6,6 +6,9 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
+const admin = require('firebase-admin');
+
+
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -87,16 +90,15 @@ var getJSON = require('get-json')
 
 
 
-
 app.get('/', function(req,res){
     
-    getJSON('https://us-central1-bananaramen-c36db.cloudfunctions.net/chartData',  function(error, response){
+    getJSON('https://us-central1-test-project-8ade2.cloudfunctions.net/universities',  function(error, response){
  
     console.log(error);
     // undefined
  
     console.log(response);
-    var chart = response.chartData;
+    var chart = response;
     // ["Beth Orton &mdash; Stolen Car",
     // "Jack White &mdash; Temporary Ground",
     // "I Am Kloot &mdash; Loch",
